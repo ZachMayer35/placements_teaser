@@ -27,7 +27,9 @@
     "test": "react-scripts test",
     "test:ci": "CI=true npm test",
     "watch": "nodemon --watch src --exec npm run build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,6 +47,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@storybook/addon-actions": "^5.2.3",
+    "@storybook/addon-links": "^5.2.3",
+    "@storybook/addons": "^5.2.3",
+    "@storybook/react": "^5.2.3",
+    "babel-loader": "^8.0.6",
     "nodemon": "^1.19.3"
   }
 }
