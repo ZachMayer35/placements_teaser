@@ -4,4 +4,4 @@ cd ./InvoiceUI
 npm run build
 npm run test:ci
 cd ../
-cp -r ./InvoiceUI/build ./InvoiceServer/ui
+cp -r ./InvoiceUI/build ./ui
