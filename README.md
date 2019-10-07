@@ -1,9 +1,5 @@
 # PlacementsIO Teaser
 
-[TOCM]
-
-Invoice management app. For details about the different major components see the README files in each top-level subdirectory.
-
 # Features
 
 - **Infinite Scroll:** For the campaigns.
@@ -53,3 +49,21 @@ The setup scripts for each environment are straightforward (and identical but pr
 
 1.  Run `docker-compose up -d` from the root of the project
 2.  Open a browser to [http://localhost:8080](http://localhost:8080) to view the app
+
+# Making Changes
+
+With the `docker-compose`'d instance running, you can make changes directly to the server or UI projects and see them in the running environment.
+
+For the server, saving files in the `InvoiceServer/server` directory is enough. The app starts in development mode locally and mounts the server directory so it can be watched and reloaded via PM2.
+
+For the UI client, making changes isn't enough since only the generated `InvoiceUI/build` directory is mounted. For those changes to show up on http://localhost:8080 you'll need to re-build the client with `npm run build` from the `InvoiceUI` directory.
+
+You can run the UI client in a detached mode with `npm start` from `InvoiceUI` and get hot-reloading of changes on http://localhost:3000 In this mode the client will make requests to your running docker environment, however those requests will be cross-origin. The InvoiceServer is configured to allow CORS requests only for this detached UI, however there may be issues with some headers. As of now all the required calls work.
+
+You can also run the InvoiceServer outside the docker environment with `npm run start:local` from the `InvoiceServer` directory. In this mode, the server will look for the dockerized MongoDB instance created with the `docker-compose up -d` command. Running locally allows you to attach debuggers and step through code but there is no file watching. It could be added with nodemon.
+
+# Running Tests
+
+For expediency, only the UI client has tests. Running the `npm run test` command from `InvoiceUI` will start a test watcher that will re-run on file changes. With a little additional configuration, the test runner Jest can be setup to also emmit snapshots (not screenshots) but this was left out for now. Adding `--coverage` to the `test` command in `package.json` will show coverage statistics.
+
+There are not many tests in the client but there are enough to demonstrate how they should be composed with the rest of the project.
