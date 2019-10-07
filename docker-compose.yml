@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  invoice-db:
+    container_name: invoice-db
+    image: mongo
+    networks:
+      - app
+    ports:
+      - "27017:27017"
+  invoice-data:
+    build: ./InvoiceData
+    depends_on:
+      - invoice-db
+    networks:
+      - app
+  invoice-server:
+    container_name: invoice-server
+    working_dir: /app
+    build: ./InvoiceServer
+    restart: always
+    depends_on:
+      - invoice-db
+    networks:
+      - app
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./InvoiceServer/server:/app/server
+      - ./InvoiceUI/build:/app/ui
+    environment:
+      - MONGODB_URI=mongodb://invoice-db:27017/PlacementsDB
+      - SERVER_PORT=8080
+      - SERVER_HOST=0.0.0.0
+      - NODE_ENV=development
+      - NPM_CONFIG_LOGLEVEL=info
+
+networks:
+  app:

@@ -1,0 +1,5 @@
+FROM mongo
+
+COPY placements_teaser_data.json /placements_teaser_data.json
+COPY placements_teaser_data_campaigns.json /placements_teaser_data_campaigns.json
+CMD mongoimport --host invoice-db --db PlacementsDB --collection items --drop --type json --file /placements_teaser_data.json --jsonArray && mongoimport --host invoice-db --db PlacementsDB --collection campaigns --drop --type json --file /placements_teaser_data_campaigns.json --jsonArray
