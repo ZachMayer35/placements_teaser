@@ -1,5 +1,9 @@
 # PlacementsIO Teaser
 
+
+[![Build Status](https://travis-ci.org/ZachMayer35/Radioscope.svg?branch=master)](https://travis-ci.com/ZachMayer35/placements_teaser)
+[![Heroku](http://heroku-badge.herokuapp.com/?app=placementsteaser&style=flat&svg=1&root=/strings)](http://placementsteaser.herokuapp.com)
+
 # Features
 
 - **Infinite Scroll:** For the campaigns.
@@ -10,6 +14,7 @@
 - **SubTotaling and Grand Totaling:** In easy-to-reach places
 - **Deep Linked Filters:** Bookmark your favorite filter
 - **Storybook:** Living design document
+- **API Docs by Swagger:** On `/documentation`
 
 # Technologies Represented
 
@@ -49,6 +54,7 @@ The setup scripts for each environment are straightforward (and identical but pr
 
 1.  Run `docker-compose up -d` from the root of the project
 2.  Open a browser to [http://localhost:8080](http://localhost:8080) to view the app
+3.  API docs live on the `/documentation` route
 
 # Making Changes
 
