@@ -9,7 +9,7 @@
 - **Persistant Data:** Edits are saved in mongo.
 - **SubTotaling and Grand Totaling:** In easy-to-reach places
 - **Deep Linked Filters:** Bookmark your favorite filter
-
+- **Storybook:** Living design document
 
 # Technologies Represented
 
@@ -67,3 +67,7 @@ You can also run the InvoiceServer outside the docker environment with `npm run 
 For expediency, only the UI client has tests. Running the `npm run test` command from `InvoiceUI` will start a test watcher that will re-run on file changes. With a little additional configuration, the test runner Jest can be setup to also emmit snapshots (not screenshots) but this was left out for now. Adding `--coverage` to the `test` command in `package.json` will show coverage statistics.
 
 There are not many tests in the client but there are enough to demonstrate how they should be composed with the rest of the project.
+
+# Storybook
+
+The storybook can be accessed locally by (first installing and then) running the command `npm run storybook` from the `/InvoiceUI` directory.
