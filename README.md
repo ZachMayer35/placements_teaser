@@ -1,7 +1,5 @@
 # PlacementsIO Teaser
 
-[TOC]
-
 Invoice management app. For details about the different major components see the README files in each top-level subdirectory.
 
 # Features
