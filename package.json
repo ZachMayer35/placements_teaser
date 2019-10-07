@@ -1,0 +1,9 @@
+{
+  "name": "placementsteaser",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "sh ./prod-start.sh",
+    "preinstall": "sh ./prod-install.sh",
+    "postinstall": "sh ./prod-build.sh"
+  }
+}
