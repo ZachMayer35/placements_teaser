@@ -13,7 +13,7 @@
 - **Persistant Data:** Edits are saved in mongo.
 - **SubTotaling and Grand Totaling:** In easy-to-reach places
 - **Deep Linked Filters:** Bookmark your favorite filter
-
+- **API Docs by Swagger:** On `/documentation`
 
 # Technologies Represented
 
@@ -53,6 +53,7 @@ The setup scripts for each environment are straightforward (and identical but pr
 
 1.  Run `docker-compose up -d` from the root of the project
 2.  Open a browser to [http://localhost:8080](http://localhost:8080) to view the app
+3.  API docs live on the `/documentation` route
 
 # Making Changes
 
