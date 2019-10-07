@@ -2,8 +2,11 @@
   "name": "placementsteaser",
   "version": "0.1.0",
   "scripts": {
-    "start": "sh ./prod-start.sh",
+    "start": "./node_modules/.bin/pm2-runtime ./pm2.config.js --no-daemon",
     "preinstall": "sh ./prod-install.sh",
     "postinstall": "sh ./prod-build.sh"
+  },
+  "dependencies": {
+    "pm2": "^3.5.1"
   }
 }

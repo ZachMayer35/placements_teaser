@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   apps: [{
     name: 'invoice-server',
-    script: './server/index.js',
+    script: process.env.NODE_ENV !== 'production' ? './server/index.js' : './InvoiceServer/server/index.js',
     instances: 1,
     autorestart: true,
     watch_options: {

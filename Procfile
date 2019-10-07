@@ -1,1 +1,1 @@
-web: prod-start.sh
+web: npm start
