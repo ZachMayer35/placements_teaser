@@ -1,5 +1,9 @@
 # PlacementsIO Teaser
 
+
+[![Build Status](https://travis-ci.org/ZachMayer35/Radioscope.svg?branch=master)](https://travis-ci.com/ZachMayer35/placements_teaser)
+[![Heroku](http://heroku-badge.herokuapp.com/?app=placementsteaser&style=flat&svg=1&root=/strings)](http://placementsteaser.herokuapp.com)
+
 # Features
 
 - **Infinite Scroll:** For the campaigns.
