@@ -36,6 +36,7 @@ const CampaignList = function() {
   const classes = useStyles();
   const [search, setSearch] = useState(queryString.parse(window.location.search).name || '');
   // useEffect runs whenever values in the second argument change, and on initialization.
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const nextQuery = campaignStore.currentQuery || campaignStore.defaultQuery;
     dispatch(getCampaigns({...nextQuery, filter }));
@@ -43,6 +44,7 @@ const CampaignList = function() {
   const fetchMoreData = () => {
     dispatch(getNextPage());
   };
+  /* eslint-enable react-hooks/exhaustive-deps */
   const handleSearch = (event) => {
     if(filter !== `?name=${search}` && filter !== search) {
       dispatch(push(`/${search && search.length > 0 ? `?name=${search}`: ''}`));

@@ -53,10 +53,12 @@ const Invoice = function ({ match }) {
     }
     return `?${queryString.stringify(query)}`;
   };
+  /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
     const nextQuery = invoiceStore.currentQuery || invoiceStore.defaultQuery;
     dispatch(getInvoice({ ...nextQuery, filter: buildFilter(search, true) }));
-  }, [filter]);
+  }, [filter]); 
+  /* eslint-enable react-hooks/exhaustive-deps */
   const handleSearch = (event) => {
     dispatch(push(`/invoice/${invoiceId}${buildFilter(search)}`));
     if (event) {
