@@ -16,8 +16,8 @@ const init = async () => {
   // const campaigns = await invoice.getAllCampaigns();
 
   const server = Hapi.server({
-    port: process.env.SERVER_PORT,
-    host: process.env.SERVER_HOST,
+    port: process.env.PORT,
+    host: process.env.HOST,
     routes: {
       cors: { // explicit cors allowance for the react dev server.
         origin: ['http://localhost:3000'],

@@ -30,8 +30,8 @@ services:
       - ./InvoiceUI/build:/app/ui
     environment:
       - MONGODB_URI=mongodb://invoice-db:27017/PlacementsDB
-      - SERVER_PORT=8080
-      - SERVER_HOST=0.0.0.0
+      - PORT=8080
+      - HOST=0.0.0.0
       - NODE_ENV=development
       - NPM_CONFIG_LOGLEVEL=info
 
