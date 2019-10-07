@@ -25,6 +25,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:ci": "CI=true npm test",
     "watch": "nodemon --watch src --exec npm run build",
     "eject": "react-scripts eject"
   },
