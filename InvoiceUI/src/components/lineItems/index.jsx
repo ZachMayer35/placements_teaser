@@ -15,11 +15,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-// {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'}).format(campaign.sub_total)}
 const LineItems = ({ lineItems, invoiceName, invoiceTotal, updateLineItem }) => {
   const classes = useStyles();
   const columns = [
+    { title: 'Reviewed', field: 'reviewed', type: 'boolean' },
     { title: 'Name', field: 'line_item_name', editable: 'never' },
+    { title: 'Subtotal', field: 'sub_total', type: 'currency', editable: 'never' },
     { title: 'Actual', field: 'actual_amount', type: 'currency', editable: 'never' },
     {
       title: 'Adjusted', field: 'adjustments', type: 'currency',
@@ -30,9 +31,7 @@ const LineItems = ({ lineItems, invoiceName, invoiceTotal, updateLineItem }) => 
           onChange={e => props.onChange(e.target.value)}
         />
       )
-    },
-    { title: 'Subtotal', field: 'sub_total', type: 'currency', editable: 'never' },
-    { title: 'Reviewed', field: 'reviewed', type: 'boolean' },
+    }
   ];
   return (
     <React.Fragment>

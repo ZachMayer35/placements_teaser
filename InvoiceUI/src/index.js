@@ -25,7 +25,10 @@ const AppContainer = () => (
     <ConnectedRouter history={history} >
       <ThemeProvider theme={Theme} >
         <CssBaseline />
-        <Header />
+        <Switch>
+          <Route exact render={(props) => <Header {...props} showQuickScroll={true} />} path='/' />
+          <Route exact render={(props) => <Header {...props} showQuickScroll={false} />} path='/invoice/:id' />
+        </Switch>
         <Switch>
           <Route exact component={CampaignList} path='/' />
           <Route exact component={Invoice} path='/invoice/:id' />

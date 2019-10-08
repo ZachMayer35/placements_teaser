@@ -28,6 +28,7 @@ const initialState = {
 
 const CampaignReducer = (state = initialState, action) => {
   switch (action.type) {
+    case actions.UPDATE_CAMPAIGNS:
     case actions.GET_CAMPAIGNS:
       return {
         ...state,
@@ -37,7 +38,6 @@ const CampaignReducer = (state = initialState, action) => {
         }
       }
     case actions.GET_NEXT_PAGE:
-      // TODO: this could use some bounds-checking to prevent weird calls and the end of a set.
       return {
         ...state,
         nextQuery: state.nextQuery ? {

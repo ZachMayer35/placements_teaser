@@ -2,6 +2,7 @@ import { call, put, select, all } from 'redux-saga/effects';
 import axios from 'axios';
 
 export const GET_CAMPAIGNS = 'GET_CAMPAIGNS';
+export const UPDATE_CAMPAIGNS = 'UPDATE_CAMPAIGNS';
 export const GET_NEXT_PAGE = 'GET_NEXT_PAGE';
 export const FETCHING_CAMPAIGNS = 'FETCHING_CAMPAIGNS';
 export const FETCHING_CAMPAIGNS_SUCCEEDED = 'FETCHING_CAMPAIGNS_SUCCEEDED';
@@ -20,6 +21,9 @@ const getDefaultQuery = (store) => store.campaign ? store.campaign.defaultQuery 
 export const getCampaigns = (query) => ({
   type: GET_CAMPAIGNS,
   query
+});
+export const updateCampaigns = () => ({
+  type: UPDATE_CAMPAIGNS
 });
 export const getNextPage = () => ({
   type: GET_NEXT_PAGE
@@ -88,7 +92,7 @@ export function * fetchCampaignsIfNeeded (action) {
       nextQuery = yield select(getNextQuery);
     }
     // if this check fails there's nothing to do
-    if(JSON.stringify(currentQuery) !== JSON.stringify(nextQuery)) {
+    if(action.type === UPDATE_CAMPAIGNS || JSON.stringify(currentQuery) !== JSON.stringify(nextQuery)) {
       yield put(fetchingCampaigns());
       // simultaneous api calls.
       const { campaignData, grandTotal } = yield all({
@@ -100,7 +104,7 @@ export function * fetchCampaignsIfNeeded (action) {
       if(action.type === GET_NEXT_PAGE) {
         yield put(addCampaignsFromData(campaignData));
       }
-      if(action.type === GET_CAMPAIGNS) {
+      if([GET_CAMPAIGNS, UPDATE_CAMPAIGNS].indexOf(action.type) >= 0) {
         yield put(setCampaignsFromData(campaignData));
       }
       yield put(setGrandTotal(grandTotal));

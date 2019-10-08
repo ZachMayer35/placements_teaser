@@ -5,10 +5,10 @@ import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles(theme => ({
   footer: {
-      top: 'auto',
-      bottom: 0,
-      paddingRight: theme.spacing(2),
-      paddingLeft: theme.spacing(2)
+    top: 'auto',
+    bottom: 0,
+    paddingRight: theme.spacing(2),
+    paddingLeft: theme.spacing(2)
   },
 }));
 
@@ -21,12 +21,12 @@ const Footer = () => {
     <AppBar position="fixed" color='secondary' className={classes.footer}>
       <Toolbar disableGutters>
         <Container maxWidth="lg">
-          <Grid container direction='row' alignItems='center' justify='space-between' >
+          <Grid container direction='row-reverse' wrap='wrap-reverse' alignItems='center' justify='space-between' >
             <Grid item >
-              <Typography variant="h6">{filter ? `Search Total (${totalInQuery} in query)` : `Grand Total ${totalInQuery} Campaigns` }</Typography>
+              <Typography variant="h6"> {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(grandTotal)}</Typography>
             </Grid>
             <Grid item >
-              <Typography variant="h6"> {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'}).format(grandTotal)}</Typography>
+              <Typography variant="h6">{filter ? `Search Total (${totalInQuery} in query)` : `Grand Total ${totalInQuery} Campaigns`}</Typography>
             </Grid>
           </Grid>
         </Container>

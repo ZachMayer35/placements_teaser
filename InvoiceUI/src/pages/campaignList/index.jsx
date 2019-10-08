@@ -14,12 +14,7 @@ import CampaignCard from '../../components/campaignCard';
 
 const useStyles = makeStyles(theme => ({
   content: {
-    [`${theme.breakpoints.up('xs')} and (orientation: landscape)`]: {
-      marginBottom: 48,
-    },
-    [theme.breakpoints.up('sm')]: {
-      marginBottom: 64,
-    }
+    marginBottom: 64,
   },
   textField: {
     marginLeft: theme.spacing(1),

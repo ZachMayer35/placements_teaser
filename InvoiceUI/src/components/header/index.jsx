@@ -14,10 +14,7 @@ import { Container, Grid } from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
   root: {
     position: 'fixed',
-    [`${theme.breakpoints.up('xs')} and (orientation: landscape)`]: {
-      marginBottom: 48,
-    },
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('xs')]: {
       marginBottom: 64,
     },
     bottom: theme.spacing(2),
@@ -80,9 +77,10 @@ const Header = (props) => (
     </AppBar>
     <Toolbar id="back-to-top-anchor" />
     <ScrollTop {...props}>
+      {props.showQuickScroll &&
       <Fab color="secondary" size="small" aria-label="scroll back to top">
         <KeyboardArrowUpIcon />
-      </Fab>
+      </Fab>}
     </ScrollTop>
   </React.Fragment>
 );
