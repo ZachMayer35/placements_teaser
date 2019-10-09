@@ -215,7 +215,7 @@ const init = async () => {
     path: '/{path*}',
     handler: (request, h) => {
       //return file if one exists in /ui
-      const exists = fs.existsSync(path.resolve(__dirname, '../ui', request.params.path));
+      const exists = fs.existsSync(path.resolve(__dirname, `${process.env.NODE_ENV === 'production' ? '../' : ''}../ui`, request.params.path));
       if (exists) {
         return h.file(`ui/${request.params.path}`);
       }
