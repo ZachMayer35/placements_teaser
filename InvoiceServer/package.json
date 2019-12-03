@@ -18,7 +18,7 @@
     "bunyan-pretty-colors": "^0.1.7",
     "dotenv": "^8.1.0",
     "hapi-swagger": "^10.1.2",
-    "mongoose": "^5.7.3",
+    "mongoose": "^5.7.5",
     "mongoose-paginate": "^5.0.3",
     "pm2": "^3.5.1"
   },
