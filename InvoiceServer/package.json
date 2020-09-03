@@ -11,7 +11,7 @@
   "author": "Zach Mayer",
   "license": "MIT",
   "dependencies": {
-    "@hapi/hapi": "^18.4.0",
+    "@hapi/hapi": "^19.1.1",
     "@hapi/inert": "^5.2.2",
     "@hapi/vision": "^5.5.4",
     "bunyan": "^1.8.12",
